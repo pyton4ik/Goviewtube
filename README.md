@@ -186,3 +186,10 @@ Thanks goes to these wonderful people
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+# Mac Developer ENV
+* Node.js v19.4.0 to /usr/local/bin/node
+* npm v9.2.0 to /usr/local/bin/npm
+* Make sure that /usr/local/bin is in your $PATH.
+
+* /usr/local/bin/pnpm
