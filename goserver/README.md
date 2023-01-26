@@ -1,4 +1,17 @@
-# golang-project-template
-How to structure your Go applications
+# Inro
+Взято отсюда
+https://github.com/ViewTube/viewtube
 
-ps: the project will be updated
+Хорошо продуманная архитектура сразу поделена на фрон и бек
+С фронтом все хорошо в вот бэк заменим на свой, Go-шный.
+Ничего особы выпиливать не будем. Папку server со старым беком оставим
+и создадим совою.
+
+# Mac os Developer Run
+## Запустить фронт локально
+pnpm run serve:client
+
+## Открыть фронт локально
+http://localhost:8066/ 
+
+
