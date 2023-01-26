@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/Avksenchik/golang-project-template/internal/app"
-)
+import "github.com/pyton4ik/Goviewtube/goserver/internal/app"
 
 func main() {
 	app.Run()

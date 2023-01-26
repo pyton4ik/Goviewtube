@@ -1,3 +1,3 @@
-module github.com/Avksenchik/golang-project-template
+module github.com/pyton4ik/Goviewtube/goserver
 
 go 1.19
