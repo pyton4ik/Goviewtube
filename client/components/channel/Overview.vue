@@ -3,7 +3,7 @@
     <div ref="channelTitle" class="channel-title-container">
       <div class="channel-title">
         <div v-if="channel.authorThumbnails" class="channel-thumbnail">
-          <img :src="imgProxyUrl + channel.authorThumbnails[2].url" alt="Author Image" />
+          <img :src="channel.authorThumbnails[2].url" alt="Author Image" />
         </div>
         <div class="channel-info">
           <div class="channel-name">

@@ -135,7 +135,6 @@ const onVideoEntryClick = () => {
           v-if="video.authorThumbnails && video.authorThumbnails.length > 0"
           class="author-thumbnail"
           :src="
-            imgProxy.url +
             (video.authorThumbnails[1]
               ? video.authorThumbnails[1].url
               : video.authorThumbnails[0].url)
@@ -145,13 +144,13 @@ const onVideoEntryClick = () => {
         <img
           v-else-if="video.authorThumbnailUrl"
           class="author-thumbnail"
-          :src="apiUrl + video.authorThumbnailUrl"
+          :src="video.authorThumbnailUrl"
           alt="Author thumbnail"
         />
         <img
           v-else-if="video.author && video.author['bestAvatar']"
           class="author-thumbnail"
-          :src="imgProxy.url + video.author['bestAvatar'].url"
+          :src="video.author['bestAvatar'].url"
           alt="Author thumbnail"
         />
       </nuxt-link>

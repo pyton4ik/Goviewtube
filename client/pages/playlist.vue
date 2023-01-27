@@ -85,7 +85,7 @@ const loadMoreVideos = async () => {
         <nuxt-link :to="`/channel/${playlist.author.channelID}`" class="author-thumbnail-banner">
           <img
             class="author-thumbnail"
-            :src="imgProxy.url + playlist.author.bestAvatar.url"
+            :src="playlist.author.bestAvatar.url"
             alt="Author thumbnail"
           />
           <div class="author-info">

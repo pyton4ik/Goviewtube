@@ -37,7 +37,7 @@ func getFakeVideo(id string) models.VideoBasicInfo {
 	return_value.Author = "Autor"
 	return_value.AuthorId = "AutorID"
 	return_value.AuthorVerified = true
-	return_value.AuthorThumbnailUrl = "udaff.com"
+	return_value.AuthorThumbnailUrl = "https://ucarecdn.com/a9ed82c6-14f1-462e-849e-3b007c2aae87"
 	return_value.VideoThumbnails = fake_film_tumbs
 	return_value.Description = "Description"
 
