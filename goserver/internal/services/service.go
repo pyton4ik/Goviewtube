@@ -1,3 +1,5 @@
-package services
+package app
 
-//TODO add application logic
+func fff() {
+
+}

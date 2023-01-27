@@ -1,65 +1,77 @@
 package models
 
-type VideoThumbnailDto struct {
-	quality string
-	url     string
-	width   int
-	height  int
+type baseVideo struct {
+	VideoId          string            `json:"videoId"`
+	Title            string            `json:"title"`
+	VideoThumbnails  []VideoThumbnail  `json:"videoThumbnails"`
+	AuthorThumbnails []AuthorThumbnail `json:"authorThumbnails"`
+	Author           string            `json:"author"`
+	AuthorId         string            `json:"authorId"`
+	ViewCount        int               `json:"viewCount"`
 }
 
-type RecommendedVideoDto struct {
-	videoId          string
-	title            string
-	videoThumbnails  []VideoThumbnailDto
-	author           string
-	authorUrl        string
-	authorId         string
-	authorThumbnails []AuthorThumbnailDto
-	lengthSeconds    int
-	viewCountText    string
-	viewCount        int
+type commonVideo struct {
+	Published      int    `json:"published"`
+	PublishedText  string `json:"publishedText"`
+	AuthorVerified bool   `json:"authorVerified"`
+	Description    string `json:"description"`
+	LikeCount      int    `json:"likeCount"`
+	LengthSeconds  int    `json:"lengthSeconds"`
 }
 
-type VideoDto struct {
-	Type              string
-	title             string
-	videoId           string
-	videoThumbnails   []VideoThumbnailDto
-	storyboards       string
-	description       string
-	descriptionHtml   string
-	published         int
-	publishedText     string
-	keywords          []string
-	viewCount         int
-	likeCount         int
-	paid              bool
-	premium           bool
-	isFamilyFriendly  bool
-	allowedRegions    []string
-	genre             string
-	genreUrl          string
-	author            string
-	authorId          string
-	authorUrl         string
-	authorThumbnails  []AuthorThumbnailDto
-	authorVerified    bool
-	subCount          int
-	lengthSeconds     int
-	allowRatings      bool
-	rating            int
-	isListed          bool
-	liveNow           bool
-	isUpcoming        bool
-	adaptiveFormats   []string
-	legacyFormats     []string
-	chapters          []ChapterDto
-	captions          string
-	recommendedVideos []RecommendedVideoDto
-	dashManifest      string
+type RecommendedVideo struct {
+	baseVideo
+	AuthorUrl     string `json:"authorUrl"`
+	LengthSeconds int    `json:"lengthSeconds"`
 }
 
-type VideoVisitDto struct {
+type VideoBasicInfo struct {
+	baseVideo
+	commonVideo
+	Live               bool   `json:"live"`
+	AuthorThumbnailUrl string `json:"authorThumbnailUrl"`
+	DislikeCount       int    `json:"dislikeCount"`
+	LengthString       string `json:"lengthString"`
+}
+
+type Video struct {
+	baseVideo
+	commonVideo
+	Type              string             `json:"live"`
+	storyboards       string             `json:"live"`
+	descriptionHtml   string             `json:"live"`
+	keywords          []string           `json:"live"`
+	paid              bool               `json:"live"`
+	premium           bool               `json:"live"`
+	isFamilyFriendly  bool               `json:"live"`
+	allowedRegions    []string           `json:"live"`
+	genre             string             `json:"live"`
+	genreUrl          string             `json:"live"`
+	authorId          string             `json:"live"`
+	authorUrl         string             `json:"live"`
+	subCount          int                `json:"live"`
+	allowRatings      bool               `json:"live"`
+	rating            int                `json:"live"`
+	isListed          bool               `json:"live"`
+	liveNow           bool               `json:"live"`
+	isUpcoming        bool               `json:"live"`
+	adaptiveFormats   []string           `json:"live"`
+	legacyFormats     []string           `json:"live"`
+	chapters          []Chapter          `json:"live"`
+	captions          string             `json:"live"`
+	recommendedVideos []RecommendedVideo `json:"live"`
+	dashManifest      string             `json:"live"`
+}
+
+type VideoThumbnail struct {
+	//'144p', '240p', '360p', '720p', '1080p', '1440p', '2160p'];
+	Quality string `json:"quality"`
+	Url     string `json:"url"`
+	Width   int    `json:"width"`
+	Height  int    `json:"height"`
+}
+
+type VideoVisit struct {
 	videoId         string
 	progressSeconds int
 	lengthSeconds   int
@@ -67,19 +79,15 @@ type VideoVisitDto struct {
 	lastVisit string
 }
 
-type VideoVisitDetailsDto struct {
-	videoDetails    VideoBasicInfoDto
-	videoId         string
-	progressSeconds int
-	lengthSeconds   int
-	/** Format date-time */
-	lastVisit string
+type VideoVisitDetails struct {
+	videoDetails VideoBasicInfo
+	VideoVisit
 }
 
-type UserprofileDetailsDto struct {
+type UserprofileDetails struct {
 	username     string
 	profileImage string
-	videoHistory []VideoVisitDetailsDto
+	videoHistory []VideoVisitDetails
 	/** Format date-time */
 	registeredAt            string
 	totalVideosCount        int
@@ -87,40 +95,20 @@ type UserprofileDetailsDto struct {
 	subscribedChannelsCount int
 }
 
-type HistoryResponseDto struct {
-	videos     []VideoVisitDetailsDto
+type HistoryResponse struct {
+	videos     []VideoVisitDetails
 	videoCount int
 }
 
-type VideoBasicInfoDto struct {
-	videoId            string
-	title              string
-	published          int
-	publishedText      string
-	author             string
-	authorId           string
-	authorVerified     bool
-	authorThumbnails   []AuthorThumbnailDto
-	authorThumbnailUrl string
-	videoThumbnails    []VideoThumbnailDto
-	description        string
-	viewCount          int
-	likeCount          int
-	dislikeCount       int
-	lengthSeconds      int
-	lengthString       string
-	live               bool
+type Popular struct {
+	Videos []VideoBasicInfo `json:"videos"`
+	/** Format date-time */
+	UpdatedAt string `json:"updatedAt"`
 }
 
-type PopularDto struct {
-	videos []VideoBasicInfoDto
+type SubscriptionFeedResponse struct {
+	VideoCount int              `json:"videoCount"`
+	Videos     []VideoBasicInfo `json:"videos"`
 	/** Format date-time */
-	updatedAt string
-}
-
-type SubscriptionFeedResponseDto struct {
-	videoCount int
-	videos     []VideoBasicInfoDto
-	/** Format date-time */
-	lastRefresh string
+	LastRefresh string `json:"lastRefresh"`
 }

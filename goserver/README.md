@@ -10,8 +10,13 @@ https://github.com/ViewTube/viewtube
 # Mac os Developer Run
 ## Запустить фронт локально
 pnpm run serve:client
+pnpm run serve:server
 
 ## Открыть фронт локально
 http://localhost:8066/ 
+
+## Открыть IP локально
+http://localhost:8067/api/homepage/popular
+http://localhost:8067/api/user/subscriptions/videos?limit=4&start=0
 
 

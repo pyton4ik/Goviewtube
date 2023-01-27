@@ -1,6 +1,6 @@
 package models
 
-type ChapterDto struct {
+type Chapter struct {
 	title     string
 	startTime int
 }

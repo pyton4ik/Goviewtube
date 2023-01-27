@@ -1,16 +1,16 @@
 package models
 
-type ChannelImageDto struct {
+type ChannelImage struct {
 	url    string
 	width  int
 	height int
 }
 
-type RelatedChannelDto struct {
+type RelatedChannel struct {
 	channelName     string
 	channelId       string
 	channelUrl      string
-	thumbnail       []ChannelImageDto
+	thumbnail       []ChannelImage
 	videoCount      int
 	subscriberText  string
 	subscriberCount int
@@ -19,28 +19,28 @@ type RelatedChannelDto struct {
 	officialArist   bool
 }
 
-type ChannelLinkDto struct {
+type ChannelLink struct {
 	url   string
 	icon  string
 	title string
 }
 
 type RelatedChannels struct {
-	items        []RelatedChannelDto
+	items        []RelatedChannel
 	continuation string
 }
 
 type ChannelLinks struct {
-	primaryLinks   []ChannelLinkDto
-	secondaryLinks []ChannelLinkDto
+	primaryLinks   []ChannelLink
+	secondaryLinks []ChannelLink
 }
 
-type ChannelInfoDto struct {
+type ChannelInfo struct {
 	author           string
 	authorId         string
 	authorUrl        string
-	authorBanners    []ChannelImageDto
-	authorThumbnails []ChannelImageDto
+	authorBanners    []ChannelImage
+	authorThumbnails []ChannelImage
 	subscriberText   string
 	subscriberCount  int
 	description      string
@@ -56,7 +56,7 @@ type ChannelInfoDto struct {
 	channelLinks     ChannelLinks
 }
 
-type ChannelVideoDto struct {
+type ChannelVideo struct {
 	author          string
 	authorId        string
 	durationText    string
@@ -68,35 +68,35 @@ type ChannelVideoDto struct {
 	title           string
 	Type            string
 	videoId         string
-	videoThumbnails []ChannelImageDto
+	videoThumbnails []ChannelImage
 	viewCount       int
 	viewCountText   string
 }
 
-type ChannelHomeDtoItems struct {
+type ChannelHomeItems struct {
 	shelfName string
 	Type      string
 	items     string
 }
 
-type ChannelHomeDto struct {
-	featuredVideo ChannelVideoDto
-	items         ChannelHomeDtoItems
+type ChannelHome struct {
+	featuredVideo ChannelVideo
+	items         ChannelHomeItems
 }
 
-type ChannelVideosDto struct {
+type ChannelVideos struct {
 	channelIdType int
 	alertMessage  string
-	items         []ChannelVideoDto
+	items         []ChannelVideo
 	continuation  string
 }
 
-type ChannelVideosContinuationDto struct {
-	items        []ChannelVideoDto
+type ChannelVideosContinuation struct {
+	items        []ChannelVideo
 	continuation string
 }
 
-type ChannelPlaylistDto struct {
+type ChannelPlaylist struct {
 	author            string
 	authorId          string
 	authorUrl         string
@@ -108,34 +108,34 @@ type ChannelPlaylistDto struct {
 	videoCount        int
 }
 
-type ChannelPlaylistsDto struct {
+type ChannelPlaylists struct {
 	channelIdType int
 	alertMessage  string
-	items         []ChannelPlaylistDto
+	items         []ChannelPlaylist
 	continuation  string
 }
 
-type ChannelPlaylistsContinuationDto struct {
-	items        []ChannelPlaylistDto
+type ChannelPlaylistsContinuation struct {
+	items        []ChannelPlaylist
 	continuation string
 }
 
-type ChannelSearchDto struct {
-	items        []ChannelVideoDto
+type ChannelSearch struct {
+	items        []ChannelVideo
 	continuation string
 }
 
-type ChannelSearchContinuationDto struct {
-	items        []ChannelVideoDto
+type ChannelSearchContinuation struct {
+	items        []ChannelVideo
 	continuation string
 }
 
-type RelatedChannelsContinuationDto struct {
-	items        []RelatedChannelDto
+type RelatedChannelsContinuation struct {
+	items        []RelatedChannel
 	continuation string
 }
 
-type ChannelCommunityPostDto struct {
+type ChannelCommunityPost struct {
 	postText         string
 	postId           string
 	author           string
@@ -145,30 +145,30 @@ type ChannelCommunityPostDto struct {
 	postContent      string
 }
 
-type ChannelCommunityPostsDto struct {
+type ChannelCommunityPosts struct {
 	channelIdType int
 	innerTubeApi  string
-	items         []ChannelCommunityPostDto
+	items         []ChannelCommunityPost
 	continuation  string
 }
 
-type ChannelCommunityPostsContinuationDto struct {
+type ChannelCommunityPostsContinuation struct {
 	innerTubeApi string
-	items        []ChannelCommunityPostDto
+	items        []ChannelCommunityPost
 	continuation string
 }
 
-type ChannelStatsDto struct {
+type ChannelStats struct {
 	joinedDate int
 	viewCount  int
 	location   string
 }
 
-type ChannelBasicInfoDto struct {
+type ChannelBasicInfo struct {
 	authorId           string
 	author             string
 	authorUrl          string
-	authorThumbnails   []AuthorThumbnailDto
+	authorThumbnails   []AuthorThumbnail
 	authorThumbnailUrl string
 	authorVerified     bool
 	subCount           int
@@ -176,7 +176,7 @@ type ChannelBasicInfoDto struct {
 	description        string
 }
 
-type SubscribedChannelsResponseDto struct {
-	channels     []ChannelBasicInfoDto
+type SubscribedChannelsResponse struct {
+	channels     []ChannelBasicInfo
 	channelCount int
 }

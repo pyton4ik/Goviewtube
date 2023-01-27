@@ -1,7 +1,7 @@
 package models
 
 type CommentDto struct {
-	authorThumbnails AuthorThumbnailDto
+	authorThumbnails AuthorThumbnail
 	author           string
 	authorId         string
 	publishedText    string

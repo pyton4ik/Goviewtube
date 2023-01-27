@@ -1,6 +1,6 @@
 package models
 
-type AuthorThumbnailDto struct {
+type AuthorThumbnail struct {
 	url    string
 	width  int
 	height int

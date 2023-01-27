@@ -1,8 +1,8 @@
 package app
 
 import (
+	"github.com/pyton4ik/Goviewtube/goserver/internal/transport/routes"
 	"log"
-	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -23,6 +23,7 @@ var albums = []album{
 }
 
 func Logger() gin.HandlerFunc {
+
 	return func(c *gin.Context) {
 		// Get the client IP address
 		clientIP := c.ClientIP()
@@ -37,37 +38,10 @@ func Logger() gin.HandlerFunc {
 	}
 }
 
-func showIndexPage(c *gin.Context) {
-	// Call the HTML method of the Context to render a template
-	c.HTML(
-		// Set the HTTP status to 200 (OK)
-		http.StatusOK,
-		// Use the index.html template
-		"index.html",
-		// Pass the data that the page uses
-		gin.H{
-			"title":   "Home Page",
-			"payload": "home",
-		},
-	)
-
-}
-
 func Run() {
 	router := gin.Default()
 	// Simple group: v1
-	v1 := router.Group("/v1")
-	{
-		v1.POST("/login", showIndexPage)
-		v1.POST("/submit", showIndexPage)
-		v1.POST("/read", showIndexPage)
-	}
-
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run("0.0.0.0:8067") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	api := router.Group("/api")
+	routes.SetRoutes(api)
+	router.Run("0.0.0.0:8067") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
