@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/pyton4ik/Goviewtube/goserver/internal/models"
 	"net/http"
@@ -29,13 +30,13 @@ var fake_film_tumbs = []models.VideoThumbnail{{
 },
 }
 
-func getFakeVideo(id string) models.VideoBasicInfo {
+func GetFakeVideo(id string) models.VideoBasicInfo {
 	var return_value models.VideoBasicInfo
 	return_value.VideoId = id
-	return_value.Title = "Title"
-	return_value.PublishedText = "PublishedText"
-	return_value.Author = "Autor"
-	return_value.AuthorId = "AutorID"
+	return_value.Title = "Title" + id
+	return_value.PublishedText = "PublishedText" + id
+	return_value.Author = "Autor" + id
+	return_value.AuthorId = "AutorID" + id
 	return_value.AuthorVerified = true
 	return_value.AuthorThumbnailUrl = "https://ucarecdn.com/a9ed82c6-14f1-462e-849e-3b007c2aae87"
 	return_value.VideoThumbnails = fake_film_tumbs
@@ -52,7 +53,21 @@ func getFakeVideo(id string) models.VideoBasicInfo {
 // postAlbums adds an album from JSON received in the request body.
 func GetPopular(c *gin.Context) {
 	var res models.Popular
-	res.Videos = append(res.Videos, getFakeVideo("1100"))
-	res.Videos = append(res.Videos, getFakeVideo("2100"))
+	res.Videos = append(res.Videos, GetFakeVideo("1100"))
+	res.Videos = append(res.Videos, GetFakeVideo("2100"))
 	c.IndentedJSON(http.StatusCreated, res)
+}
+
+func GetSubVideos(c *gin.Context) {
+	limit := c.Param("limit")
+	start := c.Param("start")
+
+	fmt.Println("Mock GetSubVideos GetSubVideos", "limit", limit, "start", start)
+
+	c.JSON(http.StatusOK, gin.H{
+		"limit":   limit,
+		"message": "Dummy mock GetSubVideos",
+		"start":   start,
+	})
+
 }

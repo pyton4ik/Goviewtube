@@ -1,45 +1,45 @@
 package models
 
 type Chapter struct {
-	title     string
-	startTime int
+	title     string `json:"title"`
+	startTime int    `json:"startTime"`
 }
 
-type DislikeDto struct {
-	id          string
-	dateCreated string
-	likes       int
-	dislikes    int
-	rating      int
-	viewCount   int
-	deleted     bool
+type Dislike struct {
+	Id          string `json:"id"`
+	DateCreated string `json:"startTime"`
+	Likes       int    `json:"likes"`
+	Dislikes    int    `json:"dislikes"`
+	Rating      int    `json:"rating"`
+	ViewCount   int    `json:"viewCount"`
+	Deleted     bool   `json:"deleted"`
 }
 
-type FilterValueDto struct {
-	active      bool
-	description string
-	name        string
-	url         string
+type FilterValue struct {
+	active      bool   `json:"startTime"`
+	description string `json:"startTime"`
+	name        string `json:"startTime"`
+	url         string `json:"startTime"`
 }
 
-type SearchFilterDto struct {
-	filterType   string
-	filterValues []FilterValueDto
+type SearchFilter struct {
+	filterType   string        `json:"startTime"`
+	filterValues []FilterValue `json:"startTime"`
 }
 
-type SubscriptionStatusDto struct {
-	channelId    string
-	isSubscribed bool
+type SubscriptionStatus struct {
+	channelId    string `json:"startTime"`
+	isSubscribed bool   `json:"startTime"`
 }
 
-type RegistrationDto struct {
-	username        string
-	password        string
-	captchaToken    string
-	captchaSolution string
+type Registration struct {
+	username        string `json:"startTime"`
+	password        string `json:"startTime"`
+	captchaToken    string `json:"startTime"`
+	captchaSolution string `json:"startTime"`
 }
 
-type CaptchaDto struct {
-	token        string
-	captchaImage string
+type Captcha struct {
+	token        string `json:"startTime"`
+	captchaImage string `json:"startTime"`
 }

@@ -8,9 +8,9 @@ import (
 func setVideoRoute(api *gin.RouterGroup) {
 	video_group := api.Group("/videos")
 	{
-		video_group.GET("/{id}", rest.MockResilt)               //VideosController_getVideos
-		video_group.GET("/manifest/dash/{id}", rest.MockResilt) //VideosController_getDashManifest
-		video_group.GET("/dislikes/{id}", rest.MockResilt)      //VideosController_getDislikes
+		video_group.GET("/:id", rest.GetVideoByID)                  //VideosController_getVideos
+		video_group.GET("/manifest/dash/:id", rest.GetDashManifest) //VideosController_getDashManifest
+		video_group.GET("/dislikes/:id", rest.GetDislikes)          //VideosController_getDislikes
 	}
 
 }

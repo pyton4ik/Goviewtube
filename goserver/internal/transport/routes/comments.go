@@ -8,7 +8,7 @@ import (
 func setCommentRoute(api *gin.RouterGroup) {
 	comments_group := api.Group("/comments")
 
-	comments_group.GET("/{videoId}", rest.MockResilt)         //CommentsController_getComments
-	comments_group.GET("/{videoId}/replies", rest.MockResilt) //CommentsController_getCommentReplies
+	comments_group.GET("/:videoId", rest.MockResilt)         //CommentsController_getComments
+	comments_group.GET("/:videoId/replies", rest.MockResilt) //CommentsController_getCommentReplies
 
 }

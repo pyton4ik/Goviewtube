@@ -34,33 +34,61 @@ type VideoBasicInfo struct {
 	LengthString       string `json:"lengthString"`
 }
 
+type LegacyFormat struct {
+	MimeType         string `json:"mimeType"`
+	QualityLabel     string `json:"qualityLabel"`
+	Bitrate          int    `json:"bitrate"`
+	AudioBitrate     int    `json:"audioBitrate"`
+	Itag             int    `json:"itag"`
+	Url              string `json:"url"`
+	Width            int    `json:"width"`
+	Height           int    `json:"height"`
+	LastModified     string `json:"lastModified"`
+	Quality          string `json:"quality"`
+	Fps              int    `json:"fps"`
+	ProjectionType   string `json:"projectionType"`
+	AudioQuality     string `json:"audioQuality"`
+	ApproxDurationMs string `json:"approxDurationMs"`
+	AudioSampleRate  string `json:"audioSampleRate"`
+	AudioChannels    int    `json:"audioChannels"`
+	HasVideo         bool   `json:"hasVideo"`
+	HasAudio         bool   `json:"hasAudio"`
+	Container        string `json:"container"`
+	Codecs           string `json:"codecs"`
+	VideoCodec       string `json:"videoCodec"`
+	AudioCodec       string `json:"audioCodec"`
+	IsLive           bool   `json:"isLive"`
+	IsHLS            bool   `json:"isHLS"`
+	IsDashMPD        bool   `json:"isDashMPD"`
+}
+
 type Video struct {
 	baseVideo
 	commonVideo
-	Type              string             `json:"live"`
-	storyboards       string             `json:"live"`
-	descriptionHtml   string             `json:"live"`
-	keywords          []string           `json:"live"`
-	paid              bool               `json:"live"`
-	premium           bool               `json:"live"`
-	isFamilyFriendly  bool               `json:"live"`
-	allowedRegions    []string           `json:"live"`
-	genre             string             `json:"live"`
-	genreUrl          string             `json:"live"`
-	authorId          string             `json:"live"`
-	authorUrl         string             `json:"live"`
-	subCount          int                `json:"live"`
-	allowRatings      bool               `json:"live"`
-	rating            int                `json:"live"`
-	isListed          bool               `json:"live"`
-	liveNow           bool               `json:"live"`
-	isUpcoming        bool               `json:"live"`
-	adaptiveFormats   []string           `json:"live"`
-	legacyFormats     []string           `json:"live"`
-	chapters          []Chapter          `json:"live"`
-	captions          string             `json:"live"`
-	recommendedVideos []RecommendedVideo `json:"live"`
-	dashManifest      string             `json:"live"`
+	Type              string             `json:"type"`
+	Storyboards       string             `json:"storyboards"`
+	DescriptionHtml   string             `json:"descriptionHtml"`
+	Keywords          []string           `json:"keywords"`
+	Paid              bool               `json:"paid"`
+	Premium           bool               `json:"premium"`
+	IsFamilyFriendly  bool               `json:"isFamilyFriendly"`
+	AllowedRegions    []string           `json:"allowedRegions"`
+	Genre             string             `json:"genre"`
+	GenreUrl          string             `json:"genreUrl"`
+	AuthorId          string             `json:"authorId"`
+	AuthorUrl         string             `json:"authorUrl"`
+	SubCount          int                `json:"subCount"`
+	AllowRatings      bool               `json:"allowRatings"`
+	Rating            int                `json:"rating"`
+	IsListed          bool               `json:"isListed"`
+	LiveNow           bool               `json:"liveNow"`
+	IsUpcoming        bool               `json:"isUpcoming"`
+	AdaptiveFormats   []string           `json:"adaptiveFormats"`
+	LegacyFormats     []LegacyFormat     `json:"legacyFormats"`
+	Chapters          []Chapter          `json:"chapters"`
+	Captions          string             `json:"live"`
+	RecommendedVideos []RecommendedVideo `json:"recommendedVideos"`
+	DashManifest      string             `json:"dashManifest"`
 }
 
 type VideoThumbnail struct {

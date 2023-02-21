@@ -19,4 +19,13 @@ http://localhost:8066/
 http://localhost:8067/api/homepage/popular
 http://localhost:8067/api/user/subscriptions/videos?limit=4&start=0
 
+## TODO 
+* Auth
+* Video Comments
+* RecommendedVideo
+* Search
+* Channel Home
+* 
 
+
+# 

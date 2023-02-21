@@ -1,87 +1,87 @@
 package models
 
 type ChannelImage struct {
-	url    string
-	width  int
-	height int
+	Url    string `json:"url"`
+	Width  int    `json:"width"`
+	Height int    `json:"height"`
 }
 
 type RelatedChannel struct {
-	channelName     string
-	channelId       string
-	channelUrl      string
-	thumbnail       []ChannelImage
-	videoCount      int
-	subscriberText  string
-	subscriberCount int
-	verified        bool
-	officialArtist  bool
-	officialArist   bool
+	ChannelName     string         `json:"channelName"`
+	ChannelId       string         `json:"channelId"`
+	ChannelUrl      string         `json:"channelUrl"`
+	Thumbnail       []ChannelImage `json:"thumbnail"`
+	VideoCount      int            `json:"videoCount"`
+	SubscriberText  string         `json:"subscriberText"`
+	SubscriberCount int            `json:"subscriberCount"`
+	Verified        bool           `json:"verified"`
+	OfficialArtist  bool           `json:"officialArtist"`
+	OfficialArist   bool           `json:"officialArist"`
 }
 
 type ChannelLink struct {
-	url   string
-	icon  string
-	title string
+	Url   string `json:"url"`
+	Icon  string `json:"icon"`
+	Title string `json:"title"`
 }
 
 type RelatedChannels struct {
-	items        []RelatedChannel
-	continuation string
+	Items        []RelatedChannel `json:"items"`
+	Continuation string           `json:"continuation"`
 }
 
 type ChannelLinks struct {
-	primaryLinks   []ChannelLink
-	secondaryLinks []ChannelLink
+	primaryLinks   []ChannelLink `json:"published"`
+	secondaryLinks []ChannelLink `json:"published"`
 }
 
 type ChannelInfo struct {
-	author           string
-	authorId         string
-	authorUrl        string
-	authorBanners    []ChannelImage
-	authorThumbnails []ChannelImage
-	subscriberText   string
-	subscriberCount  int
-	description      string
-	isFamilyFriendly bool
-	relatedChannels  RelatedChannels
-	allowedRegions   []string
-	isVerified       bool
-	isOfficialArtist bool
-	tags             []string
-	channelIdType    int
-	channelTabs      []string
-	alertMessage     string
-	channelLinks     ChannelLinks
+	author           string            `json:"published"`
+	authorId         string            `json:"published"`
+	authorUrl        string            `json:"published"`
+	authorBanners    []ChannelImage    `json:"published"`
+	authorThumbnails []ChannelImage    `json:"published"`
+	subscriberText   string            `json:"published"`
+	subscriberCount  int               `json:"published"`
+	description      string            `json:"published"`
+	isFamilyFriendly bool              `json:"published"`
+	relatedChannels  []RelatedChannels `json:"published"`
+	allowedRegions   []string          `json:"published"`
+	isVerified       bool              `json:"published"`
+	isOfficialArtist bool              `json:"published"`
+	tags             []string          `json:"published"`
+	channelIdType    int               `json:"published"`
+	channelTabs      []string          `json:"published"`
+	alertMessage     string            `json:"published"`
+	channelLinks     ChannelLinks      `json:"published"`
 }
 
 type ChannelVideo struct {
-	author          string
-	authorId        string
-	durationText    string
-	lengthSeconds   int
-	liveNow         bool
-	premiere        bool
-	premium         bool
-	publishedText   string
-	title           string
-	Type            string
-	videoId         string
-	videoThumbnails []ChannelImage
-	viewCount       int
-	viewCountText   string
+	author          string         `json:"published"`
+	authorId        string         `json:"published"`
+	durationText    string         `json:"published"`
+	lengthSeconds   int            `json:"published"`
+	liveNow         bool           `json:"published"`
+	premiere        bool           `json:"published"`
+	premium         bool           `json:"published"`
+	publishedText   string         `json:"published"`
+	title           string         `json:"published"`
+	Type            string         `json:"published"`
+	videoId         string         `json:"published"`
+	videoThumbnails []ChannelImage `json:"published"`
+	viewCount       int            `json:"published"`
+	viewCountText   string         `json:"published"`
 }
 
 type ChannelHomeItems struct {
-	shelfName string
-	Type      string
-	items     string
+	ShelfName string `json:"shelfName"`
+	Type      string `json:"type"`
+	Items     string `json:"items"`
 }
 
 type ChannelHome struct {
-	featuredVideo ChannelVideo
-	items         ChannelHomeItems
+	FeaturedVideo ChannelVideo     `json:"featuredVideo"`
+	Items         ChannelHomeItems `json:"items"`
 }
 
 type ChannelVideos struct {
